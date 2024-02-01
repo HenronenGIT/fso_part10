@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository contains my projects and exercises for the Part 10 of the Fullstack Open course, focused on mobile development using React Native. The course covers a wide range of topics including setting up the development environment, building components, managing state, and integrating with backend services.
+This repository contains my projects and exercises for Part 10 of the Fullstack Open course, focused on mobile development using React Native. The course covers a wide range of topics including setting up the development environment, building components, managing state, and integrating with backend services.
 
 ## Project Structure
 
