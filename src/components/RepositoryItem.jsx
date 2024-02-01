@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
+import Text from "./Text";
 
 interface Props {
   fullName: string;
@@ -13,16 +14,15 @@ interface Props {
 
 const RepositoryItem = (props: Props) => {
   // Destructure the props here
-
   return (
     <View>
-      <Text>Full name: {props.fullName}</Text>
-      <Text>Description: {props.description}</Text>
-      <Text>Language: {props.language}</Text>
-      <Text>Stars: {props.stargazersCount}</Text>
-      <Text>Forks: {props.forksCount}</Text>
-      <Text>Reviews: {props.reviewCount}</Text>
-      <Text>Rating: {props.ratingAverage}</Text>
+      <Text style="primary">Full name: {props.fullName}</Text>
+      <Text style="primary">Description: {props.description}</Text>
+      <Text style="primary">Language: {props.language}</Text>
+      <Text style="primary">Stars: {props.stargazersCount}</Text>
+      <Text style="primary">Forks: {props.forksCount}</Text>
+      <Text style="primary">Reviews: {props.reviewCount}</Text>
+      <Text style="primary">Rating: {props.ratingAverage}</Text>
     </View>
   );
 };
