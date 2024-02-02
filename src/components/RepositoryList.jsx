@@ -72,7 +72,7 @@ const RepositoryList = () => {
           stargazersCount={item.stargazersCount}
           ratingAverage={item.ratingAverage}
           reviewCount={item.reviewCount}
-          // ownerAvatarUrl={item.ownerAvatarUrl}
+          ownerAvatarUrl={item.ownerAvatarUrl}
         />
       )}
       // other props
