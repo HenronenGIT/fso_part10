@@ -39,7 +39,7 @@ const Text = ({
 }) => {
   const textStyle = [
     styles.text,
-    color === "textSecondary" && styles.colorTextSecondary,
+    color === "secondary" && styles.colorTextSecondary,
     color === "primary" && styles.colorPrimary,
     color === "white" && styles.colorWhite,
     fontSize === "subheading" && styles.fontSizeSubheading,

@@ -20,6 +20,8 @@ const theme = {
   backgroundColor: {
     appBar: "#24292e",
     main: "#e1e4e8",
+    primary: "#0366d6",
+    white: "#ffffff",
   },
 };
 
