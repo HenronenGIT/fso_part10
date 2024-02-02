@@ -28,13 +28,16 @@ const styles = StyleSheet.create({
   fontWeightBold: {
     fontWeight: theme.fontWeights.bold,
   },
+  textPrimary: {
+    color: theme.colors.textPrimary,
+  },
 });
 
 const Text = ({
   color = styles.textPrimary,
   fontSize = styles.fontSizeBody,
   fontWeight = styles.fontWeightNormal,
-  style,
+  style = styles.textPrimary,
   ...props
 }) => {
   const textStyle = [
