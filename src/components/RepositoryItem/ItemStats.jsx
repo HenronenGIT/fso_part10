@@ -1,7 +1,6 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 import Text from "../Text";
-import FlexContainer from "../FlexContainer";
 
 interface Props {
   stargazersCount: number;
