@@ -1,9 +1,10 @@
 import React from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
-import Text from "./Text";
+import Text from "../Text";
 import Constants from "expo-constants";
-import theme from "../theme";
+import theme from "../../theme";
 import { Link } from "react-router-native";
+import AppBarTab from "./AppBarTab";
 
 const styles = StyleSheet.create({
   flexContainer: {
@@ -23,27 +24,8 @@ const AppBar = () => {
     <>
       <View style={styles.flexContainer}>
         <ScrollView style={styles.scrollviewContainer} horizontal>
-          <Link to="/">
-            <Text
-              style="primary"
-              color="white"
-              fontSize="heading"
-              fontWeight="bold"
-            >
-              Repositories
-            </Text>
-          </Link>
-
-          <Link to="/signin">
-            <Text
-              style="primary"
-              color="white"
-              fontSize="heading"
-              fontWeight="bold"
-            >
-              Sign In
-            </Text>
-          </Link>
+          <AppBarTab label={"Repositories"} path={"/"} />
+          <AppBarTab label={"Sign In"} path={"/signin"} />
         </ScrollView>
       </View>
     </>
