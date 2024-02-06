@@ -1,8 +1,10 @@
 import React from "react";
-import Text from "./Text";
+import Text from "../Text";
 import { View, Pressable } from "react-native";
-import FormikTextInput from "./FormikTextInput";
+import FormikTextInput from "../FormikTextInput";
 import { Formik } from "formik";
+import { validationSchema } from "./signin.schema";
+import theme from "../../theme";
 
 const initialValues = {
   username: "",
@@ -11,18 +13,19 @@ const initialValues = {
 
 const styles = {
   button: {
-    padding: 10,
-    margin: 10,
+    padding: theme.padding.button,
+    margin: theme.margin.main,
     borderRadius: 5,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#0366d6",
-    maxWidth: 200,
+    maxWidth: 100,
   },
   input: {
+    margin: theme.margin.main,
+    padding: theme.padding.main,
     borderWidth: 1,
-    borderColor: "#ccc",
-    padding: 10,
+    borderColor: "black",
     borderRadius: 5,
     marginBottom: 10,
   },
@@ -55,12 +58,15 @@ export const SignIn = () => {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={onSubmit}
-      // validationSchema={validationSchema}
-    >
-      {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
-    </Formik>
+    <>
+      {/* <Text fontSize={"subheading"}>Sign In</Text> */}
+      <Formik
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+        validationSchema={validationSchema}
+      >
+        {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
+      </Formik>
+    </>
   );
 };

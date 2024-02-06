@@ -4,6 +4,7 @@ const theme = {
     textSecondary: "#586069",
     primary: "#0366d6",
     white: "#ffffff",
+    errorMessage: "#d73a4a",
   },
   fontSizes: {
     body: 14,
@@ -22,6 +23,14 @@ const theme = {
     main: "#e1e4e8",
     primary: "#0366d6",
     white: "#ffffff",
+  },
+  padding: {
+    appBar: 20,
+    main: 10,
+    button: 10,
+  },
+  margin: {
+    main: 10,
   },
 };
 
