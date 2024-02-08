@@ -7,6 +7,7 @@ const useRepositories = () => {
     // Other options
   });
   const repositories = data?.repositories;
+
   return { repositories, loading };
 };
 
