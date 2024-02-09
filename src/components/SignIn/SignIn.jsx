@@ -5,7 +5,7 @@ import FormikTextInput from "../FormikTextInput";
 import { Formik } from "formik";
 import { validationSchema } from "./signin.schema";
 import theme from "../../theme";
-import useSignIn from "../../hooks/useSignIn";
+import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-native";
 
 const initialValues = {
@@ -55,7 +55,7 @@ const SignInForm = ({ onSubmit }) => {
 };
 
 export const SignIn = () => {
-  const [signIn] = useSignIn();
+  const { signIn } = useAuth();
   const navigate = useNavigate();
 
   const onSubmit = async (values) => {
