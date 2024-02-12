@@ -1,4 +1,5 @@
-import { screen } from "@testing-library/react-native";
+import { screen, render, within } from "@testing-library/react-native";
+import RepositoryContainer from "../components/RepositoryList/RepositoryListContainer.jsx";
 
 describe("RepositoryList", () => {
   describe("RepositoryListContainer", () => {
@@ -46,10 +47,26 @@ describe("RepositoryList", () => {
         ],
       };
 
+      render(<RepositoryContainer repositories={repositories} />);
       const repositoryItems = screen.getAllByTestId("repositoryItem");
-      const [firstRepositoryItem, secondRepositoryItem] = repositoryItems;
+      expect(repositoryItems).toHaveLength(repositories.edges.length);
 
-      console.log("🚀 ~ it ~ repositoryItems:", repositoryItems);
+      repositories.edges.forEach((edge, index) => {
+        const { node } = edge;
+        const repositoryItem = within(repositoryItems[index]);
+
+        expect(repositoryItem.getByText(node.fullName)).toBeTruthy();
+        expect(repositoryItem.getByText(node.description)).toBeTruthy();
+        expect(repositoryItem.getByText(node.language)).toBeTruthy();
+
+        expect(repositoryItem.getByText(`Stars`)).toBeTruthy();
+
+        expect(repositoryItem.getByText(`Forks`)).toBeTruthy();
+
+        expect(repositoryItem.getByText(`${node.reviewCount}`)).toBeTruthy();
+
+        expect(repositoryItem.getByText(`${node.ratingAverage}`)).toBeTruthy();
+      });
     });
   });
 });
