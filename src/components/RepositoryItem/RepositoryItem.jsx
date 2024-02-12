@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import ItemHeader from "./ItemHeader";
 import Text from "../Text";
 import ItemStats from "./ItemStats";
@@ -33,7 +33,7 @@ const RepositoryItem = ({
   ownerAvatarUrl,
 }: Props) => {
   return (
-    <View style={styles.container}>
+    <View testID="repositoryItem" style={styles.container}>
       <ItemHeader
         fullName={fullName}
         description={description}
