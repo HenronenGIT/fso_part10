@@ -1,7 +1,8 @@
+import { screen } from "@testing-library/react-native";
+
 describe("RepositoryList", () => {
   describe("RepositoryListContainer", () => {
     it("renders repository information correctly", () => {
-      
       const repositories = {
         totalCount: 8,
         pageInfo: {
@@ -45,10 +46,10 @@ describe("RepositoryList", () => {
         ],
       };
 
-      //   const repositoryItems = screen.getAllByTestId("repositoryItem");
-      //   const [firstRepositoryItem, secondRepositoryItem] = repositoryItems;
+      const repositoryItems = screen.getAllByTestId("repositoryItem");
+      const [firstRepositoryItem, secondRepositoryItem] = repositoryItems;
 
-      // Add your test code here
+      console.log("🚀 ~ it ~ repositoryItems:", repositoryItems);
     });
   });
 });
