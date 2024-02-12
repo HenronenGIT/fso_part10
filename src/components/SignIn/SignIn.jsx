@@ -54,6 +54,20 @@ const SignInForm = ({ onSubmit }) => {
   );
 };
 
+export const SignInContainer = ({ onSubmit }) => (
+  <View>
+    {/* <Card> */}
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
+    >
+      {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
+    </Formik>
+    {/* </Card> */}
+  </View>
+);
+
 export const SignIn = () => {
   const { signIn } = useAuth();
   const navigate = useNavigate();
@@ -67,19 +81,9 @@ export const SignIn = () => {
         navigate("/");
       }
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   };
 
-  return (
-    <>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={onSubmit}
-        validationSchema={validationSchema}
-      >
-        {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
-      </Formik>
-    </>
-  );
+  return <SignInContainer onSubmit={onSubmit} />;
 };
