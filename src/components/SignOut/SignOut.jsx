@@ -26,7 +26,7 @@ export const SignOut = () => {
       const response = await signOut();
       navigate("/");
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   };
 

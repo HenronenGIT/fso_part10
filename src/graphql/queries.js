@@ -13,6 +13,7 @@ export const GET_REPOSITORIES = gql`
           ratingAverage
           reviewCount
           ownerAvatarUrl
+          id
         }
       }
     }
@@ -27,3 +28,28 @@ export const ME = gql`
     }
   }
 `;
+
+export const GET_REPOSITORY = gql`
+  query Repository($repositoryId: ID!) {
+    repository(id: $repositoryId) {
+      fullName
+      description
+      language
+      forksCount
+      stargazersCount
+      ratingAverage
+      reviewCount
+      ownerAvatarUrl
+      id
+      url
+    }
+  }
+`;
+
+// export const GET_REPOSITORY = gql`
+//   query Repository($repositoryId: ID!) {
+//     repository(id: $repositoryId) {
+//       url
+//     }
+//   }
+// `;

@@ -1,8 +1,9 @@
 import React from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet, View, Pressable } from "react-native";
 import useRepositories from "../../hooks/useRepositories";
 import RepositoryItem from "../RepositoryItem/RepositoryItem";
 import Text from "../Text";
+import { useNavigate } from "react-router-native";
 
 const styles = StyleSheet.create({
   separator: {
@@ -17,30 +18,33 @@ const RepositoryListContainer = ({ repositories }) => {
     ? repositories.edges.map((edge) => edge.node)
     : [];
 
+  const navigate = useNavigate();
+
   return (
     <>
-      {/* {loading ? ( */}
-      {/* <View>
-        <Text>Loading...</Text>
-      </View> */}
-      {/* ) : ( */}
       <FlatList
         data={repositoryNodes}
         ItemSeparatorComponent={ItemSeparator}
         renderItem={({ item }) => (
-          <RepositoryItem
-            fullName={item.fullName}
-            description={item.description}
-            language={item.language}
-            forksCount={item.forksCount}
-            stargazersCount={item.stargazersCount}
-            ratingAverage={item.ratingAverage}
-            reviewCount={item.reviewCount}
-            ownerAvatarUrl={item.ownerAvatarUrl}
-          />
+          <Pressable
+            onPress={() => {
+              navigate(`/${item.id}`);
+            }}
+          >
+            <RepositoryItem
+              fullName={item.fullName}
+              description={item.description}
+              language={item.language}
+              forksCount={item.forksCount}
+              stargazersCount={item.stargazersCount}
+              ratingAverage={item.ratingAverage}
+              reviewCount={item.reviewCount}
+              ownerAvatarUrl={item.ownerAvatarUrl}
+              id={item.id}
+            />
+          </Pressable>
         )}
       />
-      {/* )} */}
     </>
   );
 };

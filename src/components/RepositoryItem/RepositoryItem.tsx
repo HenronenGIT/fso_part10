@@ -1,9 +1,11 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Pressable } from "react-native";
 import ItemHeader from "./ItemHeader";
 import Text from "../Text";
 import ItemStats from "./ItemStats";
 import theme from "../../theme";
+
+import { useNavigate } from "react-router-native";
 
 interface Props {
   fullName: string;
@@ -14,6 +16,7 @@ interface Props {
   reviewCount: number;
   ratingAverage: number;
   ownerAvatarUrl: string;
+  id: string;
 }
 
 const styles = StyleSheet.create({
@@ -40,13 +43,13 @@ const RepositoryItem = ({
         ownerAvatarUrl={ownerAvatarUrl}
         language={language}
       />
-
       <ItemStats
         stargazersCount={stargazersCount}
         forksCount={forksCount}
         reviewCount={reviewCount}
         ratingAverage={ratingAverage}
       />
+      {/* //! WHY NO VISIBLE */}
     </View>
   );
 };

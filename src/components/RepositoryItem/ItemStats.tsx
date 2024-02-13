@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Text from "../Text";
 
 interface Props {
@@ -37,7 +37,6 @@ const ItemStats = ({
     } else {
       displayCount = count.toString();
     }
-
     return displayCount;
   };
 
