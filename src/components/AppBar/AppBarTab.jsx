@@ -18,7 +18,7 @@ const AppBarTab = ({ path, label }) => {
         <Text
           style="primary"
           color="white"
-          fontSize="heading"
+          fontSize="subheading"
           fontWeight="bold"
         >
           {label}

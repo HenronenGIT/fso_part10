@@ -39,6 +39,7 @@ const AppBar = () => {
         <ScrollView style={styles.scrollviewContainer} horizontal>
           {/* {data.me && <AppBarTab label={"Repositories"} path={"/"} />} */}
           <AppBarTab label={"Repositories"} path={"/"} />
+          <AppBarTab label={"Create a review"} path={"/createreview"} />
           {renderAuthTab()}
         </ScrollView>
       </View>

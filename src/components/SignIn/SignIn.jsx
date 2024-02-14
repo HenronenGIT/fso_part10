@@ -56,7 +56,6 @@ const SignInForm = ({ onSubmit }) => {
 
 export const SignInContainer = ({ onSubmit }) => (
   <View>
-    {/* <Card> */}
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
@@ -64,7 +63,6 @@ export const SignInContainer = ({ onSubmit }) => (
     >
       {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
     </Formik>
-    {/* </Card> */}
   </View>
 );
 
