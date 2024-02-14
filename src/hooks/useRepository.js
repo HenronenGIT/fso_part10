@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_REPOSITORY } from "../graphql/queries";
+import { useState } from "react-native";
 
 const useRepository = (repositoryId) => {
   const { data, loading, error } = useQuery(GET_REPOSITORY, {
@@ -8,7 +9,7 @@ const useRepository = (repositoryId) => {
     // Other options
   });
 
-  const repository = data?.repository;
+  const repository = data?.repository || null;
 
   return { repository, loading, error };
 };

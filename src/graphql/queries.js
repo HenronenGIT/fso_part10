@@ -42,14 +42,18 @@ export const GET_REPOSITORY = gql`
       ownerAvatarUrl
       id
       url
+      reviews {
+        edges {
+          node {
+            rating
+            createdAt
+            text
+            user {
+              username
+            }
+          }
+        }
+      }
     }
   }
 `;
-
-// export const GET_REPOSITORY = gql`
-//   query Repository($repositoryId: ID!) {
-//     repository(id: $repositoryId) {
-//       url
-//     }
-//   }
-// `;

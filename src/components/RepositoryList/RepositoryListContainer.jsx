@@ -4,6 +4,7 @@ import useRepositories from "../../hooks/useRepositories";
 import RepositoryItem from "../RepositoryItem/RepositoryItem";
 import Text from "../Text";
 import { useNavigate } from "react-router-native";
+import { explodeNodes } from "../../utils/helpers";
 
 const styles = StyleSheet.create({
   separator: {
@@ -14,9 +15,7 @@ const styles = StyleSheet.create({
 const ItemSeparator = () => <View style={styles.separator} />;
 
 const RepositoryListContainer = ({ repositories }) => {
-  const repositoryNodes = repositories
-    ? repositories.edges.map((edge) => edge.node)
-    : [];
+  const repositoryNodes = explodeNodes(repositories);
 
   const navigate = useNavigate();
 

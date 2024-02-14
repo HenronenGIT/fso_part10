@@ -23,7 +23,7 @@ export const SignOut = () => {
 
   const handleOnPress = async () => {
     try {
-      const response = await signOut();
+      await signOut();
       navigate("/");
     } catch (e) {
       console.error(e);
