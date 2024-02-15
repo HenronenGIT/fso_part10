@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { FlatList, StyleSheet, View, Pressable } from "react-native";
 import useRepositories from "../../hooks/useRepositories";
 import RepositoryItem from "../RepositoryItem/RepositoryItem";
-import Text from "../Text";
 import { useNavigate } from "react-router-native";
 import { explodeNodes } from "../../utils/helpers";
+import FilterSelection from "./FilterSelection";
 
 const styles = StyleSheet.create({
   separator: {
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-const RepositoryListContainer = ({ repositories }) => {
+const RepositoryListContainer = ({ repositories, filters, setFilters }) => {
   const repositoryNodes = explodeNodes(repositories);
 
   const navigate = useNavigate();
@@ -22,6 +22,9 @@ const RepositoryListContainer = ({ repositories }) => {
   return (
     <>
       <FlatList
+        ListHeaderComponent={
+          <FilterSelection setFilters={setFilters} filters={filters} />
+        }
         data={repositoryNodes}
         ItemSeparatorComponent={ItemSeparator}
         renderItem={({ item }) => (

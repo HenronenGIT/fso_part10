@@ -39,6 +39,7 @@ const theme = {
   margin: {
     main: 10,
   },
+
 };
 
 export default theme;
