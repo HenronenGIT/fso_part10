@@ -25,11 +25,28 @@ const AppBar = () => {
     fetchPolicy: "cache-and-network",
   });
 
-  const renderAuthTab = () => {
+  const renderNonAuthenticatedTabs = () => {
+    if (!data?.me) {
+      return (
+        <>
+          <AppBarTab label={"Repositories"} path={"/"} />
+          <AppBarTab label="Sign In" path="/signin" />
+          <AppBarTab label={"Sign Up"} path={"/signup"} />
+        </>
+      );
+    }
+  };
+
+  const renderAuthenticatedTabs = () => {
     if (data?.me) {
-      return <AppBarTab label="Sign Out" path="/signout" />;
+      return (
+        <>
+          <AppBarTab label={"Create a review"} path={"/createreview"} />
+          <AppBarTab label="Sign Out" path="/signout" />
+        </>
+      );
     } else {
-      return <AppBarTab label="Sign In" path="/signin" />;
+      return null;
     }
   };
 
@@ -37,10 +54,8 @@ const AppBar = () => {
     <>
       <View style={styles.flexContainer}>
         <ScrollView style={styles.scrollviewContainer} horizontal>
-          {/* {data.me && <AppBarTab label={"Repositories"} path={"/"} />} */}
-          <AppBarTab label={"Repositories"} path={"/"} />
-          <AppBarTab label={"Create a review"} path={"/createreview"} />
-          {renderAuthTab()}
+          {renderNonAuthenticatedTabs()}
+          {renderAuthenticatedTabs()}
         </ScrollView>
       </View>
     </>
