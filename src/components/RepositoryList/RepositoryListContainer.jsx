@@ -4,7 +4,7 @@ import useRepositories from "../../hooks/useRepositories";
 import RepositoryItem from "../RepositoryItem/RepositoryItem";
 import { useNavigate } from "react-router-native";
 import { explodeNodes } from "../../utils/helpers";
-import FilterSelection from "./FilterSelection";
+import FiltersComponent from "./FiltersComponent";
 
 const styles = StyleSheet.create({
   separator: {
@@ -14,7 +14,12 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-const RepositoryListContainer = ({ repositories, filters, setFilters }) => {
+const RepositoryListContainer = ({
+  repositories,
+  filters,
+  setFilters,
+  updateSearchKeyword,
+}) => {
   const repositoryNodes = explodeNodes(repositories);
 
   const navigate = useNavigate();
@@ -23,7 +28,11 @@ const RepositoryListContainer = ({ repositories, filters, setFilters }) => {
     <>
       <FlatList
         ListHeaderComponent={
-          <FilterSelection setFilters={setFilters} filters={filters} />
+          <FiltersComponent
+            setFilters={setFilters}
+            filters={filters}
+            updateSearchKeyword={updateSearchKeyword}
+          />
         }
         data={repositoryNodes}
         ItemSeparatorComponent={ItemSeparator}

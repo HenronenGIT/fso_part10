@@ -3,13 +3,6 @@ import { Image, StyleSheet, View } from "react-native";
 import Text from "../Text";
 import theme from "../../theme";
 
-// interface Props {
-//   fullName: string;
-//   description: string;
-//   ownerAvatarUrl: string;
-//   language: string;
-// }
-
 const styles = StyleSheet.create({
   flexRow: {
     padding: 5,

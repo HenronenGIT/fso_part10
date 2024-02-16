@@ -27,3 +27,8 @@ Provide instructions on how to set up and run the project locally. For example:
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/fullstackopen-part10.git
+
+
+debounce
+filtering
+apollo

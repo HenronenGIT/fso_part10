@@ -7,18 +7,6 @@ import theme from "../../theme";
 
 import { useNavigate } from "react-router-native";
 
-interface Props {
-  fullName: string;
-  description: string;
-  language: string;
-  stargazersCount: number;
-  forksCount: number;
-  reviewCount: number;
-  ratingAverage: number;
-  ownerAvatarUrl: string;
-  id: string;
-}
-
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.colors.white,
@@ -34,7 +22,7 @@ const RepositoryItem = ({
   reviewCount,
   ratingAverage,
   ownerAvatarUrl,
-}: Props) => {
+}) => {
   return (
     <View testID="repositoryItem" style={styles.container}>
       <ItemHeader

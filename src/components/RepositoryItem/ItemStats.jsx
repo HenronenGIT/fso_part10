@@ -2,12 +2,12 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import Text from "../Text";
 
-interface Props {
-  stargazersCount: number;
-  forksCount: number;
-  reviewCount: number;
-  ratingAverage: number;
-}
+// interface Props {
+//   stargazersCount: number;
+//   forksCount: number;
+//   reviewCount: number;
+//   ratingAverage: number;
+// }
 
 const styles = StyleSheet.create({
   flexContainer: {
@@ -28,7 +28,7 @@ const ItemStats = ({
   forksCount,
   reviewCount,
   ratingAverage,
-}: Props) => {
+}) => {
   const formatCount = (count: number) => {
     let displayCount;
 

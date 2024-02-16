@@ -4,6 +4,8 @@ import Button from "../Button/Button";
 import RNPickerSelect from "react-native-picker-select";
 import theme from "../../theme";
 import Text from "../Text.jsx";
+import TextInput from "../TextInput";
+import useRepositories from "../../hooks/useRepositories";
 
 const ITEMS = [
   {
@@ -24,9 +26,14 @@ const ITEMS = [
   },
 ];
 
-const FilterSelection = ({ setFilters, filters }) => {
+const FiltersComponent = ({ setFilters, filters, updateSearchKeyword }) => {
   return (
     <>
+      <TextInput
+        style={styles.input}
+        placeholder="Search repositories"
+        onChange={(event) => updateSearchKeyword(event.nativeEvent.text)}
+      />
       <View style={styles.container}>
         <RNPickerSelect
           style={styles.container}
@@ -60,6 +67,18 @@ const styles = StyleSheet.create({
     fontSize: theme.fontSizes.subheading,
     fontWeight: theme.fontWeights.bold,
   },
+  input: {
+    height: 40,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    backgroundColor: "white",
+    borderRadius: 5,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    margin: 10,
+    fontSize: theme.fontSizes.body,
+    fontWeight: theme.fontWeights.normal,
+  },
 });
 
-export default FilterSelection;
+export default FiltersComponent;

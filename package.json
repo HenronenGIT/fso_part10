@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
+    "install:force": "npm install --force",
+    "install:legacy": "npm install --legacy-peer-deps",
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
@@ -43,6 +45,7 @@
     "react-native-picker-select": "^9.0.1",
     "react-native-web": "~0.18.7",
     "react-router-native": "^6.22.0",
+    "use-debounce": "^10.0.0",
     "yup": "^1.3.3"
   },
   "devDependencies": {

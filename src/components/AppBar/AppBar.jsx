@@ -29,7 +29,6 @@ const AppBar = () => {
     if (!data?.me) {
       return (
         <>
-          <AppBarTab label={"Repositories"} path={"/"} />
           <AppBarTab label="Sign In" path="/signin" />
           <AppBarTab label={"Sign Up"} path={"/signup"} />
         </>
@@ -54,6 +53,7 @@ const AppBar = () => {
     <>
       <View style={styles.flexContainer}>
         <ScrollView style={styles.scrollviewContainer} horizontal>
+          <AppBarTab label={"Repositories"} path={"/"} />
           {renderNonAuthenticatedTabs()}
           {renderAuthenticatedTabs()}
         </ScrollView>
