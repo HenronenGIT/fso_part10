@@ -1,12 +1,13 @@
-import { CREATE_REVIEW } from "../graphql/mutations";
+import { CREATE_REVIEW, DELETE_REVIEW } from "../graphql/mutations";
 import { ME } from "../graphql/queries";
-
 import { useMutation, useQuery } from "@apollo/client";
 
 const useReviews = () => {
   const [mutate, { data }] = useMutation(CREATE_REVIEW);
 
-  const { data: meData } = useQuery(ME, {
+  const [deleteReviewMutate, { data: temp }] = useMutation(DELETE_REVIEW);
+
+  const { data: meData, refetch } = useQuery(ME, {
     fetchPolicy: "cache-and-network",
     variables: {
       includeReviews: true,
@@ -32,7 +33,17 @@ const useReviews = () => {
     }
   };
 
-  return { createReview, meData };
+  const deleteReview = async (deleteReviewId) => {
+    const response = await deleteReviewMutate({
+      variables: {
+        deleteReviewId,
+      },
+    });
+
+    return response;
+  };
+
+  return { createReview, meData, deleteReview, refetch };
 };
 
 export default useReviews;
