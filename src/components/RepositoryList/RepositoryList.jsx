@@ -6,11 +6,15 @@ import { useDebounce } from "use-debounce";
 const RepositoryList = () => {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [debouncedSearchKeyword] = useDebounce(searchKeyword, 500);
-
   const [filters, setFilters] = useState({
     orderBy: "CREATED_AT",
     orderDirection: "DESC",
     searchKeyword: debouncedSearchKeyword,
+  });
+
+  const { repositories, loading, fetchMore } = useRepositories({
+    filters,
+    first: 5,
   });
 
   const updateSearchKeyword = (keyword) => {
@@ -24,7 +28,9 @@ const RepositoryList = () => {
     }));
   }, [debouncedSearchKeyword]);
 
-  const { repositories, loading } = useRepositories(filters);
+  const onEndReach = () => {
+    fetchMore();
+  };
 
   return (
     <>
@@ -33,6 +39,7 @@ const RepositoryList = () => {
         filters={filters}
         setFilters={setFilters}
         updateSearchKeyword={updateSearchKeyword}
+        onEndReach={onEndReach}
       />
     </>
   );

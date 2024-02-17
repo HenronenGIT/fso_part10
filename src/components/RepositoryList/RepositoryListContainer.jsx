@@ -19,6 +19,7 @@ const RepositoryListContainer = ({
   filters,
   setFilters,
   updateSearchKeyword,
+  onEndReach,
 }) => {
   const repositoryNodes = explodeNodes(repositories);
 
@@ -34,6 +35,8 @@ const RepositoryListContainer = ({
             updateSearchKeyword={updateSearchKeyword}
           />
         }
+        onEndReached={onEndReach}
+        onEndReachedThreshold={0.5}
         data={repositoryNodes}
         ItemSeparatorComponent={ItemSeparator}
         renderItem={({ item }) => (
