@@ -40,7 +40,8 @@ const AppBar = () => {
     if (data?.me) {
       return (
         <>
-          <AppBarTab label={"Create a review"} path={"/createreview"} />
+          <AppBarTab label="Create a review" path={"/createreview"} />
+          <AppBarTab label="My Reviews" path="/myreviews" />
           <AppBarTab label="Sign Out" path="/signout" />
         </>
       );

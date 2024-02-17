@@ -32,3 +32,4 @@ Provide instructions on how to set up and run the project locally. For example:
 debounce
 filtering
 apollo
+react composition with props (<ReviewItem>)

@@ -1,9 +1,14 @@
 import { CREATE_REVIEW } from "../graphql/mutations";
+import { ME } from "../graphql/queries";
 
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 
 const useReview = () => {
   const [mutate, { data }] = useMutation(CREATE_REVIEW);
+
+  const { data: meData } = useQuery(ME, {
+    fetchPolicy: "cache-and-network",
+  });
 
   const createReview = async ({ ownerName, text, repositoryName, rating }) => {
     try {
@@ -24,7 +29,7 @@ const useReview = () => {
     }
   };
 
-  return { createReview };
+  return { createReview, meData };
 };
 
 export default useReview;

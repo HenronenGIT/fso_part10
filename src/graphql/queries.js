@@ -29,10 +29,25 @@ export const GET_REPOSITORIES = gql`
 `;
 
 export const ME = gql`
-  query Me {
+  query me {
     me {
-      id
-      username
+      createdAt
+      reviews {
+        edges {
+          node {
+            rating
+            id
+            text
+            createdAt
+            user {
+              username
+            }
+            repository {
+              name
+            }
+          }
+        }
+      }
     }
   }
 `;

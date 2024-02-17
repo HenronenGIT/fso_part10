@@ -37,7 +37,6 @@ const RepositoryItem = ({
         reviewCount={reviewCount}
         ratingAverage={ratingAverage}
       />
-      {/* //! WHY NO VISIBLE */}
     </View>
   );
 };
