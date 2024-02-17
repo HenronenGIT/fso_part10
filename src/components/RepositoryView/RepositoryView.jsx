@@ -41,10 +41,14 @@ const RepositoryInfo = ({ repository }) => {
   );
 };
 
-const RepositoryView = ({}) => {
+const RepositoryView = () => {
   const { id } = useParams();
-  const { repository, loading } = useRepository(id);
+  const { repository, loading, fetchMore } = useRepository(id);
+
   const reviews = repository ? explodeNodes(repository.reviews) : [];
+  // const reviews = repository
+  //   ? repository.reviews.edges.map((edge) => edge.node)
+  //   : [];
 
   if (loading || !repository) {
     return (
@@ -55,9 +59,15 @@ const RepositoryView = ({}) => {
     );
   }
 
+  const onEndReach = () => {
+    fetchMore();
+  };
+
   return (
     <>
       <FlatList
+        onEndReached={onEndReach}
+        onEndReachedThreshold={0.5}
         data={reviews}
         renderItem={({ item }) => <ReviewItem review={item} />}
         keyExtractor={({ id }) => id}
