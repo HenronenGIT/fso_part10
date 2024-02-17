@@ -1,7 +1,6 @@
 import React from "react";
-import { View, FlatList } from "react-native";
-import Text from "../Text.jsx";
-import useReview from "../../hooks/useReview.js";
+import { FlatList, View } from "react-native";
+import useReview from "../../hooks/useReviews.js";
 import ReviewItem from "../ReviewItem/ReviewItem.jsx";
 
 const MyReviews = () => {
@@ -11,7 +10,6 @@ const MyReviews = () => {
 
   return (
     <View>
-      <Text>My Reviews</Text>
       <FlatList
         data={reviews}
         renderItem={({ item }) => <ReviewItem review={item} myReview={true} />}

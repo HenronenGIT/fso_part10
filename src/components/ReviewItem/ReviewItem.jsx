@@ -3,6 +3,7 @@ import { View } from "react-native";
 import theme from "../../theme";
 import { formatDate } from "../../utils/helpers";
 import Text from "../Text.jsx";
+import Button from "../Button/Button";
 
 const ReviewItem = ({ review, myReview = false }) => {
   return (
@@ -17,6 +18,7 @@ const ReviewItem = ({ review, myReview = false }) => {
           </Text>
           <Text color={"textSecondary"}>{formatDate(review.createdAt)}</Text>
           <Text style={styles.comment}>{review.text}</Text>
+          {/* <Button label={"View"}/> */}
         </View>
       </View>
     </>
