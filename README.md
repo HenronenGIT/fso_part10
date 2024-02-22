@@ -2,11 +2,9 @@
 
 ## Introduction
 
-This repository contains project and exercises for Part 10 of the Fullstack Open course, focused on mobile development using React Native.
+This repository contains fullstac mobile app project built by using React Native language. Project is part of the Fullstack open course created by University of Helsinki.
 
-Server side code was provided to us, and it is located in `server` folder.
-
-## Technologies used
+## 🛠️ Technologies used
 
 - React Native: A framework for building native apps using React.
 - Expo: An open-source platform for making universal native apps for Android, iOS, and the web with JavaScript and React.
@@ -16,7 +14,7 @@ Server side code was provided to us, and it is located in `server` folder.
 - ESLint: Code linter
 - React Native Debugger: Tool made to debug React Native applications
 
-## Concepts learned
+## 📜 Concepts learned
 
 - Form, and stage managing
 - Components
@@ -30,7 +28,7 @@ Server side code was provided to us, and it is located in `server` folder.
 - Debouncing
 - React Composition with Props `<ReviewItem/>`
 
-## Project Structure
+## 🏛️ Project Structure
 
 - `src/components`: This folder contains all of the self-made components
 - `src/__tests__`: This folder contains all of the tests
@@ -40,9 +38,8 @@ Server side code was provided to us, and it is located in `server` folder.
 - `src/components/Main.js`: Main routing file
 - `App.js`: The main entry point of the application.
 
-## Setup and Running
+## 🏃🏽 Setup and Running
 
-Provide instructions on how to set up and run the project locally. For example:
 
 1. Clone the repository:
    ```
@@ -50,7 +47,7 @@ Provide instructions on how to set up and run the project locally. For example:
    ```
 
 2. Install dependencies for client, and server side:
-    ```
+    ```bash
     § fso_part10/client npm install
     ```
     ```
@@ -59,7 +56,7 @@ Provide instructions on how to set up and run the project locally. For example:
 
 3. Start the server in development:
 
-    ```
+    ```bash
     § fso_part10/server npm run start:dev
     ```
 
@@ -70,7 +67,7 @@ Provide instructions on how to set up and run the project locally. For example:
 
 5.  Launch the client:
 
-    ```
+    ```bash
     § client expo start
     ```
 
